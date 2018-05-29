@@ -1,33 +1,39 @@
 # Automounting external drive on a Raspberry PI
 
-Identify UUID from the external drive, usually `/dev/sda1`
+**NOTE:** As my hard drive is formatted in ntfs we need to install ``ntfs-3g``
+
+```shell
+sudo apt-get install ntfs-3g 
+```
+
+1. Identify UUID from the external drive, usually `/dev/sda1`
 
 ```shell
 sudo blkid
 ```
 
-Create a directory where it will be mounted at
+2. Create a directory where it will be mounted at
 
 ```shell
 sudo mkdir /media/rasp3tb
 ```
 
-Add root user as a directory owner
+3. Add root user as a directory owner
 
 ```shell
 sudo chown -R pi:pi /media/rasp3tb
 ```
 
-Edit `fstab` to auto-mount
+4. Edit `fstab` to auto-mount
 
 ```shell
 sudo nano /etc/fstab
 ```
 
-Add the following line at the end of the document
+5. Add the following line at the end of the document
 
 ```shell
-UUID=<REPLACE_WITH_UUID> /media/rasp3tbl vfat auto,users,rw,uid=1000,gid=100,umask=0002 0 0
+UUID=<REPLACE_WITH_UUID> /media/rasp3tbl ntfs auto,users,rw,uid=1000,gid=100,umask=0002 0 0
 ```
 
 **Problems**
