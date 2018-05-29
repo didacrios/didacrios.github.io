@@ -1,12 +1,12 @@
-title:              Blog
+title:              Tecnologia lliure per a un món lliure
 tagline:            on GitHub Pages
 description:        Content-focused template for a blog hosted on GitHub Pages.
-url:                http://YourName.github.io
+url:                http://didacrios.github.io
 
 author:
-  name:             Your Name
-  url:              https://twitter.com/YourName
-  email:            YourName@gmail.com
+  name:             Dídac Ríos
+  url:              https://twitter.com/didacrios
+  email:            didac.rios@protonmail.com
 
 # GitHub Pages / Jekyll configuration
 baseurl:            ''
