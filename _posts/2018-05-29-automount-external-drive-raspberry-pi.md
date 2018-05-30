@@ -33,7 +33,7 @@ sudo nano /etc/fstab
 5. Add the following line at the end of the document
 
 ```shell
-UUID=<REPLACE_WITH_UUID> /media/rasp3tbl ntfs auto,users,rw,uid=1000,gid=100,umask=0002 0 0
+UUID="<REPLACE_WITH_UUID>" /media/rasp3tb ntfs auto,users,rw,uid=1000,gid=100,umask=0002 0 0
 ```
 
 **Problems**
