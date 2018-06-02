@@ -106,7 +106,7 @@ $ php7.0-mysql mysql-server php-mysql
 **NOTA 2:** Paquets opcionals
 
 ```shell
-$ redis-server php-redis letsencrypt python-letsencrypt-apache
+$ sudp apt-get install redis-server php-redis letsencrypt python-letsencrypt-apache
 ```
 
 Reinciem i comprovem que tot esta funcionant correctament accedint a la IP de la maquina des del navegador
