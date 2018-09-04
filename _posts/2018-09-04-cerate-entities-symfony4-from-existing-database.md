@@ -1,7 +1,4 @@
-# Create Entities from an existing database in a Symfony4 project #
-
 You could go to the official documentation in https://symfony.com/doc/current/doctrine/reverse_engineering.html
-
 
 https://symfony.com/doc/current/doctrine/reverse_engineering.html
 
