@@ -1,4 +1,4 @@
-# Alias per a les connexions ssh
+## Alias de terminal
 
 Si hem de realitzar connexions a varis servidors, es fàcil que no recordem sempre les IP. Es aquí on podem utilitzar alias
 
