@@ -4,10 +4,7 @@ Aquest estiu he revisat el llibre [*Lean Software Development: An Agile Toolkit*
 
 En aquesta primera entrega parlarem del desperdici o el malbaratament (*waste, muda*).
 
-El desperdici (*waste, muda*)  és tot allo que al client no li aporta un valor directe. Les pràctiques àgils en el desenvolupament de software busquen eliminar aquest desperdici, i el primer pas per fer-ho es identificar-lo. 
-
-Identificar el desperdici és una de les principals practiques lean.  i per fer-ho es proposa classificar-lo en les 8 categories, influenciades pels 7 desperdicis del lean manufacturing.
-
+El desperdici (*waste, muda*) és tot allò que al client no li aporta un valor directe. Les pràctiques àgils en el desenvolupament de software busquen eliminar aquest desperdici, i el primer pas per fer-ho és saber-lo identificar, al igual que proposa *lean* per a identificar el desperdici cal classificar-lo així que influenciats pels 7 desperdicis del *lean manufacturing* es proposa classificar el desperdici en el desenvolupament de programari en 8 categories.
 
 ### Feina feta parcialment (*Partially Done Work*)
 
