@@ -56,7 +56,7 @@ Es podria pensar que això i procrastinar ve a ser el mateix, però en realitat 
 
 Quan un programador té dubtes, que és el que ha de fer fins aconseguir una resposta? Hi ha gent disponible per solucionar problemes tècnics? I els funcionals? El client o el seu representant (PO, PM) està disponible per contestar-li? Pot el programador interpretar correctament la feina a fer de forma senzilla sense haver d'anar a trobar algun company?
 
-El desenvolupament de programari requereix d'una gran concentració, cada cop que se li plantegi algun de les situacions anteriors li faran perdre el focus. Tenir l'equip disponible i treballant conjuntament fara que aquests no siguin grans problemes.
+El desenvolupament de programari requereix d'una gran concentració, cada cop que se li plantegi alguna de les situacions anteriors li faran perdre el focus. Tenir l'equip disponible i treballant conjuntament fara que aquests no siguin grans problemes.
 
 La gent no es la única que es mou, els requeriments, la documentació, el codi, també està en constant moviment durant el cicle de desenvolupament. Traslladar tota aquesta informació és també un desperdici, tots aquests artefactes no poden contenir la totalitat de la informació, sempre hi ha informació que es retindrà en els seus creadors com a individual o grup. Es per això que també, traslladar aquests recursos entre diferents grups també és desperdici.
 
