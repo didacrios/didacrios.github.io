@@ -4,31 +4,34 @@ Aquest estiu he revisat el llibre [*Lean Software Development: An Agile Toolkit*
 
 En aquesta primera entrega parlarem del desperdici o el malbaratament (*waste, muda*).
 
-El desperdici (*waste, muda*) és tot allò que al client no li aporta un valor directe. Les pràctiques àgils en el desenvolupament de software busquen eliminar aquest desperdici, i el primer pas per fer-ho és saber-lo identificar, al igual que proposa *lean* per a identificar el desperdici cal classificar-lo així que influenciats pels 7 desperdicis del *lean manufacturing* es proposa classificar el desperdici en el desenvolupament de programari en 8 categories.
+El desperdici (*waste, muda*) és tot allò que al client no li aporta un valor directe. Les pràctiques àgils en el desenvolupament de software busquen eliminar aquest desperdici, i el primer pas per fer-ho és saber-lo identificar.
+
+Una de les pràctiques *lean* ens diu que per a identificar el desperdici cal classificar-lo, així que influenciats pels 7 desperdicis del *lean manufacturing* es proposa classificar el desperdici en el desenvolupament de programari en 8 categories.
+
 
 ### Feina feta parcialment (*Partially Done Work*)
 
-Fa referencia a desenvolupaments que es queden a mitges i no s'arriben a desplegar en un entorn de producció, aquest tipus de desenvolupaments tendeixen a quedar-se obsolets en poc temps, interferint en el desenvolupament d'altres tasques que s'han de realitzar. El principal problema es que el que s'ha fet no s'arriba desplegar, per tant no hi ha *working software*, el que ens impossibilita obtenir feedback i saber si realment funciona, si causa algun efecte no previst en el sistema o si realment estem solucionant el problema que voliem solventar.
+Fa referencia a desenvolupaments que es queden a mitges i no s'arriben a desplegar en un entorn de producció, aquest tipus de desenvolupaments tendeixen a quedar-se obsolets en poc temps, interferint en el desenvolupament d'altres tasques que s'han de realitzar. El principal problema es que el que s'ha fet no s'arriba desplegar, per tant no hi ha [*working software*](https://agilemanifesto.org/principles.html), el que ens impossibilita obtenir feedback i saber si realment funciona, si causa algun efecte no previst en el sistema o si realment estem solucionant el problema que voliem solventar.
 
-S'ha de tenir en compte que en aquests desenvolupaments s'ha fet també una inversió en recursos (planificació, priorització, definició, disseny, codificació…), que encara no ha generat resultats, o el que és el mateix es "cancela una gran inversió" i això pot traduir-se en un risc si ho extrapolem a nivell financer.
+S'ha de tenir en compte que en aquests desenvolupaments s'ha fet també una inversió en recursos (planificació, priorització, definició, disseny, codificació…), que encara no ha generat resultats, això implica que es "cancela una gran inversió", convertint-se en un risc si ho extrapolem a nivell financer.
 
-Així doncs, ell fet de reduir la feina parcialment redueix riscos i es converteix també en una estrategia per a la reducció de desperdici.
+Així doncs, el fet de reduir la feina parcialment redueix riscos i es converteix al mateix temps en una estrategia per a la reducció del desperdici.
 
 ### Processos extra (*Extra Processes*)
 
-T'has preguntat mai si la burocràcia i la paperassa són necessaris? La burocràcia consumeix recursos, és lenta, es perd, queda obsoleta, i molts cops ningú l'acaba mirant.
+T'has preguntat mai si la burocràcia i la paperassa són necessaris? La burocràcia consumeix recursos, és lenta, es perd, queda obsoleta, i molts cops ningú li fa cas.
 
-En el desenvolupament de programari, també hi ha burocràcia. Molts processos de desenvolupament requereixen d'omplir omplir formularis, requeriments, tests, actualitzar seguiments, reportar hores, documentar, etc.
+En el desenvolupament de programari, també hi ha burocràcia. Molts processos de desenvolupament requereixen d'omplir formularis de sol·licitud, requeriments, tests, actualitzar seguiments, reportar hores, documentar, etc.
 
-Planteja’t si realment al client, tots aquest processos li importen i l'ajuden a tenir un producte més valuós, i en el cas de que ho sigui, recorda aquestes 3 regles: Que sigui la minima possible (*Keep it short*). que sigui a alt nivell, clara i consisa. (*Keep it hihg level*) i que estigui fora del proces de desenvolupament. (*Do it off line*).
+Planteja’t si realment, al client, tots aquest processos importen i l'ajuden a tenir un producte més valuós, i en el cas de que ho sigui, recorda aplicar aquestes 3 regles: Que sigui la minima possible (*Keep it short*). que sigui a alt nivell, clara i consisa. (*Keep it high level*) i que estigui fora del procés de desenvolupament. (*Do it off line*).
 
-En la majoria de desenvolupaments, hi ha requeriments escrits. En aquests casos, el fet que aquests requeriments siguin facilment accessibles i evaluats per a la seva comprovació es pot considerar una activitat que aporta valor. Estem parlant de taules i/o plantilles que fan que tant els clients com els desenvolupadors puguin rapidament entendre i validar. L'utilització de pràctiques com BDD (*Behaviour Driven Design*), ATDD (*Acceptance Test-Driven Development*), *Specification by Example*, reduirien el desperdici en tant que es consideren pràctiques que aporten valor.
+En la majoria de desenvolupaments, hi ha requeriments escrits. En aquests casos, el fet que aquests requeriments siguin fàcilment accessibles i evaluats per a la seva comprovació es pot considerar una activitat que aporta valor. Estem parlant de taules i/o plantilles que fan que tant els clients com els desenvolupadors puguin ràpidament entendre i validar. L'utilització de pràctiques com BDD (*Behaviour Driven Design*), ATDD (*Acceptance Test-Driven Development*), *Specification by Example*, reduirien el desperdici en tant que es consideren pràctiques que aporten valor.
 
-Una altra forma d'identificar si la burocràcia aporta valor o no es el fet d'identificar si hi ha algú que l'estigui esperant. Hi ha algú que escriu escenaris per a que es puguin interpretar i programar? Doncs probablement aquesta burocràcia aporta valor. Tot i això s'ha de treballar en millorar l'eficiencia en aquest sentit i buscar la millor manera de transmetre la informació, per exemple, no escriure requeriments i utilitzar pràctiques com les citade anteriorment. Els detalls d’implementació també convé no fer-los massa aviat i limitar-se a aprofundir-hi en la iteració en la que s'haurien d'implementar.
+Una altra forma d'identificar si la burocràcia aporta valor o no es el fet d'identificar si hi ha algú que l'estigui esperant. Hi ha algú que escriu escenaris per a que es puguin interpretar i programar? Doncs probablement aquesta burocràcia aporta valor. Tot i això s'ha de treballar en millorar l'eficiencia en aquest sentit i buscar la millor manera de transmetre la informació, per exemple, no escriure requeriments i utilitzar pràctiques com les citades anteriorment o bé que els detalls d’implementació no fer-los massa aviat i limitar-se a aprofundir-hi en la iteració en la que s'haurien d'implementar.
 
 ### Funcionalitats extra (*Extra Features*)
 
-Pot semblar molt bona idea afegir funcionalitats extra, per si de cas es necessiten. Als desenvolupadors ens encanta afegir complexitat tècnica i funcionalitats extra. Això que ens pot semblar inofensiu, és un dels mes grans desperdicis. Cada bit de codi s'ha de compilar, integrar, testejar, desplegar  i despres s'ha de mantenir. Cad bit de codi incrementa la complexitat i es un punt de fallida (*failure point*). Fins i tot hi ha la possibilitat de que aquella part de codi quedi obsoleta abans de que s'utilitzi, ja que en realitat mai s'ha arribat a demanar. Quan el codi no es necessita ara, és un desperdici. Que no us tempti la serp.
+Pot semblar molt bona idea afegir funcionalitats extra, per si de cas es necessiten. Als programadors ens encanta afegir complexitat tècnica i funcionalitats extra. Això que ens pot semblar inofensiu, és un dels mes grans desperdicis. Cada linia de codi s'ha de compilar, integrar, testejar, desplegar  i després, s'ha de mantenir. Cada linia de codi incrementa la complexitat i es un punt de fallida (*failure point*). Fins i tot hi ha la possibilitat de que aquella part de codi quedi obsoleta abans de que s'utilitzi, ja que en realitat mai s'ha arribat a demanar. Quan el codi no es necessita ara, és un desperdici. Que no us tempti la serp.
 
 
 ### Canvi de tasques (*Task Switching*)
