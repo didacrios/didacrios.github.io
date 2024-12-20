@@ -71,11 +71,11 @@ Fins aquest punt de la plantilla, tot el que s'ha demanat no requereix cap tipus
 
 ###  🔭 Descoberta
 
-En aquest apartat s'hauran d'omplir els següents apartats
+En aquest apartat s'hauran d'omplir els següents punts:
 
 #### 🛠️ Solució
 
-En aquest punt es tracta d'exposar una proposat de solució, tot i que és a nivell explicatiu també pot anar acompanyat d'una prova de concepte (POC)
+En aquest punt es tracta d'exposar una proposta de solució, tot i que és a nivell teòric també pot anar acompanyat d'una prova de concepte (POC)
 
 #### 🐉 Riscs
 
