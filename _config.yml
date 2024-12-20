@@ -1,12 +1,12 @@
 title:              Tecnologia lliure per a un món lliure
 tagline:            Localhost
-description:        Blog per guardar-hi les meves tonteries
-url:                http://didacrios.github.io
+description:        "Un bloc en català dedicat a compartir coneixements, experiències i reflexions sobre tecnologia, desenvolupament de programari i bones pràctiques per construir un món digital més lliure i sostenible."
+url:                http://didacrios.cat
 
 author:
   name:             Dídac Ríos
-  url:              https://twitter.com/didacrios
-  email:            didac.rios@protonmail.com
+  url:              https://x.com/didacrios
+  email:            didac.rios@proton.me
 
 # GitHub Pages / Jekyll configuration
 baseurl:            ''
