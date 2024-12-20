@@ -1,6 +1,18 @@
 ---
 title: Plantilla per a les iniciatives
 permalink: /plantilla-iniciatives/
+tags: 
+  - product
+  - product owner
+  - project manager
+  - agile
+  - initiative
+  - user story
+  - lean
+  - software development
+  - scrum
+  - xp
+  - iteration
 ---
 
 En els meus últims projectes amb responsabilitats compartides de Product Owner i Team Lead en la que tenia més control sobre el backlog del producte, vaig veure la necessitat de crear una plantilla per treballar les nostres iniciatives. Aquest sistema no només ens ajuda a prioritzar el treball enfront d'altres tasques, sinó que també garanteix que tots els implicats comparteixin un mateix context abans de començar. Aquesta metodologia reforça la transparència i l’alineament dins de l’equip i facilita l’avaluació de les decisions durant el desenvolupament.
