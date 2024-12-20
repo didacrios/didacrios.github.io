@@ -1,5 +1,5 @@
 title:              Tecnologia lliure per a un món lliure
-tagline:            Localhost
+tagline:            ""
 description:        "Un bloc en català dedicat a compartir coneixements, experiències i reflexions sobre tecnologia, desenvolupament de programari i bones pràctiques per construir un món digital més lliure i sostenible."
 url:                http://didacrios.cat
 
@@ -11,7 +11,7 @@ author:
 # GitHub Pages / Jekyll configuration
 baseurl:            ''
 permalink:          /:title/
-paginate:           5
+paginate:           3
 defaults:
   -
     scope:
