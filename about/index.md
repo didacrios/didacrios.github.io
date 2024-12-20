@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Quant a
+permalink: /quant-a/
 ---
 
 👋 Hola! Sóc en Dídac y aquest és el meu bloc, dedicat a compartir coneixements, experiències i reflexions sobre tecnologia, bones pràctiques de desenvolupament i estratègies per construir programari sòlid i escalable.
