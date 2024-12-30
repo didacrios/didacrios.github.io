@@ -51,7 +51,7 @@ Inclou informació clau com:
 
 ### Criteris de priorització
 
-Aquí es pot afegir el criteri de priorització que cada equip consideri, en el nostre cas hem passat per varis criteris, des del [RICE](https://www.productplan.com/glossary/rice-scoring-model/) a una [versió simplificada de la matriu Value/Urgency](https://blackswanfarming.com/qualitative-cost-delay/) per quantificar el màxim possible el cost del endarreriment.
+Aquí es pot afegir el criteri de priorització que cada equip consideri, en el nostre cas hem passat per varis criteris, des del [RICE](https://www.productplan.com/glossary/rice-scoring-model/) a una [versió simplificada de la matriu Value/Urgency](https://blackswanfarming.com/qualitative-cost-delay/) per quantificar el màxim possible el cost del endarreriment. Us deixo un article del [Marc Rodríguez](https://www.linkedin.com/in/marcrodriguezpique) (former Digital Project Manager @ Freshly Cosmetics) on explica com treballavem a [nivell de productes per priotitzar objectius](https://producthackers.com/es/blog/metodologia-trabajo-startup).
 
 | **Priorization criteria** |     |
 | ----------------- | --- |
@@ -152,4 +152,7 @@ To be filled by the whole team or team lead during the Kickoff
 - [drive folder](#)
 
 ```
- 
+
+ ## Enllaços relacionats
+
+ - [La metodología de desarrollo de Producto que utiliza Freshly Cosmetics para crecer a toda velocidad](https://producthackers.com/es/blog/metodologia-trabajo-startup)
