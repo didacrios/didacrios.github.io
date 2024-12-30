@@ -153,6 +153,6 @@ To be filled by the whole team or team lead during the Kickoff
 
 ```
 
- ## Enllaços relacionats
+## Enllaços relacionats
 
  - [La metodología de desarrollo de Producto que utiliza Freshly Cosmetics para crecer a toda velocidad](https://producthackers.com/es/blog/metodologia-trabajo-startup)
