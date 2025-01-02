@@ -19,9 +19,9 @@ Quan parlem de software legacy, sovint pensem en aplicacions antiquades o mal di
 
 ## El context inicial
 
-L'any 2018 es va desenvolupar una aplicació per gestionar els processos de preparació de les comandes de la botiga online. L'aplicació, desenvolupada en PHP (Symfony), MySQL, Symfony, Socket.io, React, resolia eficaçment la gestió de comandes, des de la manipulació del producte per a l'empaquetat, fins a l'enviament, incloent la integració amb diversos transportistes.
+L'any 2018 es va desenvolupar una aplicació amb l'objectiu de optimitzar el procés de preparació de comandes i garantir una integració eficient amb diferents operadors logístics. Desenvolupada en PHP (Symfony), MySQL, Socket.io i React, l'aplicació gestionava des de l'empaquetat fins a l'enviament, amb funcionalitats com el seguiment d'enviaments i mètriques de rendiment.
 
-Durant anys, l'aplicació va complir el seu objectiu principal: optimitzar els processos logístics i millorar l'eficiència del magatzem. No obstant això, el temps i l'evolució del negoci van començar a evidenciar limitacions importants.
+Durant anys, aquesta eina va complir el seu propòsit, però amb el temps i l'evolució del negoci, van començar a evidenciar-se limitacions importants.
 
 ## Els reptes que ens van portar a la internalització
 
@@ -43,6 +43,7 @@ Però més enllà de les versions obsoletes, el projecte presentava mancances si
 - **Control de versions deficient**: L'històric de Git era poc explicatiu, amb commits poc granulars i missatges que no seguien cap convenció ni aportaven context sobre els canvis realitzats. Això dificultava entendre l'evolució del codi i les decisions preses al llarg del temps.
 
 Aquesta acumulació de deute tècnic no només representava un risc per a l'estabilitat i seguretat del sistema, sinó que també:
+
 - Alentia el ritme de desenvolupament de noves funcionalitats
 - Augmentava el risc d'introducció d'errors
 - Dificultava l'onboarding de nous membres a l'equip
@@ -51,12 +52,14 @@ Aquesta acumulació de deute tècnic no només representava un risc per a l'esta
 
 ### Limitacions estructurals
 
-L'arquitectura inicial presentava problemes d'acoblament significatius:
+L'arquitectura inicial presentava problemes d'acoblament que afectaven greument la seva flexibilitat i escalabilitat:
 
-- Dependència total amb l'e-commerce principal
-- Base de dades compartida que generava problemes de rendiment
-- Impossibilitat de funcionar de manera independent
-- Dificultat per implementar noves funcionalitats
+- *Dependència total amb l'e-commerce principal*:  L'aplicació no podia operar de manera autònoma, ja que totes les operacions logístiques depenien directament de les dades i processos de l'e-commerce. Això feia que qualsevol canvi en la plataforma principal pogués trencar la funcionalitat del sistema.
+- *Base de dades compartida que generava problemes de rendiment*: Tant l'aplicació logística com l'e-commerce utilitzaven la mateixa base de dades, fet que ocasionava problemes de rendiment, especialment durant pics de càrrega en qualsevol de les dues aplicacions. A més, aquesta configuració complicava la gestió de permisos, ja que qualsevol accés a la base de dades podia comprometre dades crítiques d'altres sistemes.
+- *Impossibilitat de funcionar de manera independent:*  L'aplicació estava dissenyada per operar exclusivament en conjunt amb l'e-commerce. Això no només limitava la seva portabilitat, sinó que també dificultava proves en entorns aïllats o la migració cap a altres plataformes. Les seves dependències no estaven adequadament encapsulades, fent que qualsevol intent d'aïllar-la requerís canvis massius i costosos en tot el sistema i no es respectava el principi de separació de responsabilitats (*Single Responsibility Principle*).
+- *Dificultat per implementar noves funcionalitats:*La falta d'adhesió a principis com l'Obert/Tancat (OCP) i la Substitució de Liskov (LSP) dificultava enormement l'evolució del sistema. Les noves funcionalitats requerien modificar codi existent, augmentant el risc d'introduir regressions. A més, la dependència directa entre mòduls feia gairebé impossible seguir el principi d'Inversió de Dependències (DIP).
+
+Aquest conjunt de limitacions estructurals no només reduïa la mantenibilitat i escalabilitat del sistema, sinó que també incrementava els riscos associats a qualsevol modificació o evolució, situant l'aplicació en un estat tècnicament fràgil i estratègicament vulnerable.
 
 ### Gestió del desenvolupament i alineació estratègica
 
