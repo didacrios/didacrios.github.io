@@ -9,6 +9,11 @@ tags:
   - technical debt
   - software development
   - refactor
+  - symfony
+  - messenger
+  - rabbitmq
+  - sqs
+  - webhooks
 published: false
 ---
 
