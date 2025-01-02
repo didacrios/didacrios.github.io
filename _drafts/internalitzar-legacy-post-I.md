@@ -1,12 +1,25 @@
 ---
 title: "La internalització d'un producte legacy: Història d'una transformació digital (I)"
+permalink: /internalitzacio-projecte-legacy-i/
+tags: 
+  - product
+  - technical debt
+  - big band refactor
+  - refactor
+  - lean
+  - software development
+  - scrum
+  - xp
+  - symfony
+  - iteration
+published: false
 ---
 
 Quan parlem de software legacy, sovint pensem en aplicacions antiquades o mal dissenyades. Però la realitat és que el "legacy" pot ser qualsevol aplicació que, tot i funcionar correctament, presenta reptes significatius per a la seva evolució i manteniment. Aquesta és la història de com vam abordar la internalització d'una aplicació de gestió logística, amb el repte afegit d'una integració amb una nova plataforma de comerç electrònic.
 
 ## El context inicial
 
-L'any 2018 es va desenvolupar una aplicació per gestionar els processos de picking i packing de la botiga online. L'aplicació, desenvolupada en Symfony 4.0, resolia eficaçment la gestió de comandes, des de la recepció fins a l'enviament, incloent la integració amb diversos transportistes.
+L'any 2018 es va desenvolupar una aplicació per gestionar els processos de preparació de les comandes de la botiga online. L'aplicació, desenvolupada en PHP (Symfony), MySQL, Symfony, Socket.io, React, resolia eficaçment la gestió de comandes, des de la manipulació del producte per a l'empaquetat, fins a l'enviament, incloent la integració amb diversos transportistes.
 
 Durant anys, l'aplicació va complir el seu objectiu principal: optimitzar els processos logístics i millorar l'eficiència del magatzem. No obstant això, el temps i l'evolució del negoci van començar a evidenciar limitacions importants.
 
@@ -14,14 +27,27 @@ Durant anys, l'aplicació va complir el seu objectiu principal: optimitzar els p
 
 ### Deute tècnic acumulat
 
-El primer repte significatiu era la versió de Symfony utilitzada. La versió 4.0 tenia un suport de seguretat limitat que va finalitzar el gener de 2019. Això significava que l'aplicació funcionava amb una versió que no rebia actualitzacions de seguretat des de feia més de quatre anys.
+La situació del deute tècnic era especialment preocupant, ja que afectava múltiples capes del projecte. A nivell d'infraestructura tecnològica, l'aplicació s'executava sobre versions obsoletes tant del framework com del llenguatge base:
 
-A més, el *codebase* presentava diversos problemes:
+- La versió de Symfony (4.0) no era LTS (Long Term Support) i havia deixat de rebre actualitzacions de seguretat des de gener de 2019
+- PHP 7.1, la versió utilitzada, també havia arribat al final del seu cicle de suport, deixant el sistema sense actualitzacions crítiques de seguretat
 
-- Absència de tests automatitzats
-- Manca d'estàndards de codi documentats
-- Codi sense seguir principis de Clean Code
-- Documentació escassa o inexistent
+Però més enllà de les versions obsoletes, el projecte presentava mancances significatives en aspectes fonamentals del desenvolupament professional de software:
+
+- **Testing inexistent o inadequat**: La falta de tests automatitzats (unitaris, d'integració i end-to-end) no només dificultava la detecció primerenca d'errors, sinó que també feia que qualsevol modificació fos un risc potencial per a l'estabilitat del sistema.
+
+- **Absència d'estàndards de codi**: El codebase no seguia patrons ni estàndards documentats, i els que s'aplicaven no estaven alineats amb les millors pràctiques de la indústria. Això dificultava tant el manteniment com la incorporació de nous desenvolupadors al projecte.
+
+- **Documentació insuficient**: La documentació existent era escassa i sovint incompleta. Això no només afectava el desenvolupament tècnic, sinó també la comprensió dels processos de negoci implementats en el codi.
+
+- **Control de versions deficient**: L'històric de Git era poc explicatiu, amb commits poc granulars i missatges que no seguien cap convenció ni aportaven context sobre els canvis realitzats. Això dificultava entendre l'evolució del codi i les decisions preses al llarg del temps.
+
+Aquesta acumulació de deute tècnic no només representava un risc per a l'estabilitat i seguretat del sistema, sinó que també:
+- Alentia el ritme de desenvolupament de noves funcionalitats
+- Augmentava el risc d'introducció d'errors
+- Dificultava l'onboarding de nous membres a l'equip
+- Incrementava els costos de manteniment
+- Complicava la diagnosi i resolució de problemes
 
 ### Limitacions estructurals
 
