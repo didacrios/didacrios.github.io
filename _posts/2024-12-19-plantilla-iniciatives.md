@@ -25,7 +25,7 @@ Podem debatre molt sobre organització i jerarquia de les tasques en un *backlog
 - Històries d’usuari: Unitats més concretes de treball.
 - Tasques: Accions específíques derivades de les històries.
 
-![Backlog items](/images/backlog-items.png)
+![Backlog items](https://res.cloudinary.com/dufky4znh/image/upload/v1735844799/backlog-items_nj7hnx.png)
 
 ## Com es treballa una iniciativa?
 
