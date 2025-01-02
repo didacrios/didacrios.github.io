@@ -1,6 +1,6 @@
 ---
-title: "La internalització d'un producte legacy: Història d'una transformació digital (I)"
-permalink: /internalitzacio-projecte-legacy-i/
+title: "De software legacy a oportunitat estratègica: El punt de partida (I)"
+permalink: /software-legacy-oportunitat-estrategica-punt-partida-1/
 tags: 
   - product
   - technical debt
