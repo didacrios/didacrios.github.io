@@ -4,7 +4,7 @@ permalink: /software-legacy-oportunitat-estrategica-punt-partida-1/
 tags: 
   - product
   - technical debt
-  - big band refactor
+  - big bang rewrite
   - refactor
   - lean
   - software development
@@ -12,6 +12,7 @@ tags:
   - xp
   - symfony
   - iteration
+  - strangler fig
 published: false
 ---
 
@@ -79,9 +80,9 @@ Aquesta situació no era sostenible a llarg termini, ja que:
 
 ## El punt d'inflexió: Un nou repte i una decisió estratègica
 
-Al febrer de 2023, ens vam trobar davant d'un moment clau. No només havíem d'assumir la internalització d'un producte legacy amb tots els seus reptes tècnics i organitzatius, sinó que també teníem al davant la necessitat d'integrar l'aplicació amb una nova plataforma d'e-commerce. El deadline era clar i inamovible: necessitàvem tenir una solució estable abans del Black Friday 2023.
+Al febrer de 2023, ens vam trobar davant d'un moment clau. No només havíem d'assumir la internalització d'un producte legacy amb tots els seus reptes tècnics i organitzatius, sinó que també teníem al davant la necessitat d'integrar l'aplicació amb una nova plataforma d'e-commerce. El deadline era clar i inamovible: necessitàvem tenir una solució estable abans de la campanya de juliol 2023.
 
-La situació requeria una anàlisi profunda i una decisió meditada. Teníem dues opcions sobre la taula: refactoritzar gradualment el projecte existent o començar de zero amb un "big bang refactor". Cada opció tenia les seves implicacions, i la decisió no era senzilla, finalment, tot i que personalment no crec que sigui la millor decisió tècnica, en aquesta situació en concret seria de les poques vegades en les que recomanaria un "big bang refactor". També influenciada pel compromís a nivell de negoci, de no ampliar funcionalitats en aquest període y un control total del backlog del projecte.
+La situació requeria una anàlisi profunda i una decisió meditada. Teníem dues opcions sobre la taula: refactoritzar gradualment el projecte existent ([strangler fig](https://martinfowler.com/bliki/StranglerFigApplication.html) o començar de zero amb un "[big bang rewrite](https://scalablehuman.com/2023/10/14/why-a-big-bang-rewrite-of-a-system-is-a-bad-idea-in-software-development/)". Cada opció tenia les seves implicacions, i la decisió no era senzilla, finalment, tot i que personalment no crec que sigui la millor decisió tècnica, en aquesta situació en concret seria de les poques vegades en les que recomanaria un "big bang rewrite". També influenciada pel compromís a nivell de negoci, de no ampliar funcionalitats en aquest període y un control total del backlog del projecte.
 
 | Pros | Contres |
 |---------------------------|----------|
@@ -96,7 +97,7 @@ La situació requeria una anàlisi profunda i una decisió meditada. Teníem due
 
 ## Conclusions i següents passos
 
-La decisió d'internalitzar i reescriure un software legacy mai és fàcil, especialment quan aquest software compleix la seva funció. La dita de *si funciona no ho toquis* hi serà semprepresent. No obstant això, de vegades és necessari fer un pas enrere per poder fer-ne dos endavant.
+La decisió d'internalitzar i reescriure un software legacy mai és fàcil, especialment quan aquest software compleix la seva funció. La dita de *si funciona no ho toquis* hi serà sempre present. No obstant això, de vegades és necessari fer un pas enrere per poder fer-ne dos endavant.
 
 En els propers articles d'aquesta sèrie, explorarem com vam abordar aquests reptes, les decisions tècniques que vam prendre, i com vam transformar aquests desafiaments en oportunitats de millora i creixement.
 
