@@ -2,6 +2,8 @@ title:              Tecnologia lliure per a un món lliure
 tagline:            ""
 description:        "Un bloc en català dedicat a compartir coneixements, experiències i reflexions sobre tecnologia, desenvolupament de programari i bones pràctiques per construir un món digital més lliure i sostenible."
 url:                http://didacrios.cat
+locale:             ca_ES
+timezone:           "Europe/Madrid"
 
 author:
   name:             Dídac Ríos
