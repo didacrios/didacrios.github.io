@@ -16,11 +16,11 @@ tags:
 published: false
 ---
 
-Quan parlem de software legacy, sovint pensem en aplicacions antiquades o mal dissenyades. Però la realitat és que el "legacy" pot ser qualsevol aplicació que, tot i funcionar correctament, presenta reptes significatius per a la seva evolució i manteniment. Aquesta és la història de com vam abordar la internalització d'una aplicació de gestió logística, amb el repte afegit d'una integració amb una nova plataforma de comerç electrònic.
+Quan parlem de software legacy, sovint pensem en aplicacions antiquades o mal dissenyades. Però la realitat és que el "legacy" pot ser qualsevol aplicació que, tot i funcionar correctament, presenta reptes significatius per a la seva evolució i manteniment. Aquesta és la història de com vam abordar la internalització d'una aplicació de gestió logística (Order Management System, OMS), amb el repte afegit d'una integració amb una nova plataforma de comerç electrònic.
 
 ## El context inicial
 
-L'any 2018 es va desenvolupar una aplicació (OMS) amb l'objectiu de optimitzar el procés de preparació de comandes i garantir una integració eficient amb diferents operadors logístics. Desenvolupada en PHP (Symfony), MySQL, Socket.io i React, l'aplicació gestionava des de l'empaquetat fins a l'enviament, amb funcionalitats com el seguiment d'enviaments i mètriques de rendiment de la preparació de les comandes.
+L'any 2018 es va l'aplicació amb l'objectiu de optimitzar el procés de preparació de comandes d'un ecommerce en alça i garantir així una integració eficient amb diferents operadors logístics. Desenvolupada en PHP (Symfony), MySQL, Socket.io i React, l'aplicació gestionava des de l'empaquetat fins a l'enviament, amb funcionalitats com el seguiment d'enviaments, connexió amb transportistes, generació d'etiquetes i mètriques de rendiment de la preparació de les comandes.
 
 Durant anys, aquesta eina va complir el seu propòsit, però amb el temps i l'evolució del negoci, van començar a evidenciar-se limitacions importants.
 
@@ -62,7 +62,6 @@ L'arquitectura inicial presentava problemes d'acoblament que afectaven greument 
 
 Aquest conjunt de limitacions estructurals no només reduïa la mantenibilitat i escalabilitat del sistema, sinó que també incrementava els riscos associats a qualsevol modificació o evolució, situant l'aplicació en un estat tècnicament fràgil i estratègicament vulnerable.
 
-
 ### Gestió del desenvolupament i alineació estratègica
 
 Un dels reptes més significatius no era només tècnic, sinó estratègic. El desenvolupament extern, tot i ser funcionalment correcte, presentava limitacions importants en l'àmbit organitzatiu:
@@ -77,21 +76,23 @@ Aquesta situació no era sostenible a llarg termini, ja que:
 - Generava un producte cada cop més desalineat amb les necessitats reals
 - Dificultava la integració amb altres sistemes i processos de l'empresa
 - Complicava la presa de decisions estratègiques sobre el producte
-- Limitava la capacitat d'innovació i millora continua
+- Limitava la capacitat d'innovació i millora continua de l'equip
 
 ### Impacte del cost basal
 
-Un aspecte sovint oblidat però especialment rellevant en aquest projecte va ser el cost basal, un concepte que considero clau en el desenvolupament de software que es refereix al cost mínim necessari per mantenir operatiu un sistema, fins i tot sense afegir-hi noves funcionalitats o fer-hi millores.
+Un aspecte sovint oblidat però especialment rellevant en aquest projecte va ser el cost basal, un concepte que considero clau en el desenvolupament de software que es refereix al cost mínim necessari per mantenir operatiu un sistema, fins i tot sense afegir-hi noves funcionalitats o fer-li millores.
 
 En el nostre cas, el cost basal incloïa totes aquelles despeses derivades de la necessitat de mantenir versions obsoletes del framework i del llenguatge, solucionar incidències urgents derivades del deute tècnic acumulat, gestionar la dependència amb altres sistemes, adaptar-se a una arquitectura acoplada i poc coneixement del domini. Tot això consumia una part significativa dels recursos disponibles, afectant directament la capacitat d'invertir en innovació i millora contínua.
 
-Si bé aquest factor no va ser determinant per prendre la decisió d’internalitzar el desenvolupament, va tenir un pes rellevant en la diagnosi inicial del projecte. Sovint, el cost basal es passa per alt en l'avaluació de la sostenibilitat d’un sistema, però en aquest cas, era una evidència clara que l’estratègia actual no era sostenible a llarg termini. A més, va quedar palès, com veurem en posteriors articles, que qualsevol intent de mantenir l’estructura existent augmentaria el cost basal de manera exponencial amb el pas del temps.
+Si bé aquest factor no va ser determinant per prendre la decisió d’internalitzar el desenvolupament, va tenir un pes rellevant en la diagnosi inicial del projecte. Sovint, el cost basal es passa per alt en l'avaluació de la sostenibilitat d’un sistema, però en aquest cas, era una evidència clara que l’estratègia actual no era sostenible a llarg termini. A més, va quedar palès, com veurem en posteriors articles, que qualsevol intent de mantenir l'estructura existent augmentaria el cost basal de manera exponencial amb el pas del temps.
 
 Per a una explicació més detallada sobre el concepte de cost basal i la seva importància, recomano consultar [l'article original d'Eduardo Ferro](https://www.eferro.net/2024/07/el-coste-basal-del-software.html)
 
+---
+
 ## El punt d'inflexió: Un nou repte i una decisió estratègica
 
-En qualsevol projecte de refactorització, es poden adoptar varies estratègies i es habitual trobar-se amb la dicotomia de: l'estratègia ([strangler fig](https://martinfowler.com/bliki/StranglerFigApplication.html) o començar de zero amb un "[big bang rewrite](https://scalablehuman.com/2023/10/14/why-a-big-bang-rewrite-of-a-system-is-a-bad-idea-in-software-development/)".
+En qualsevol projecte de refactorització, es poden adoptar varies estratègies i es habitual trobar-se amb la dicotomia de: l'estratègia ([strangler fig](https://martinfowler.com/bliki/StranglerFigApplication.html)) o començar de zero amb un "[big bang rewrite](https://scalablehuman.com/2023/10/14/why-a-big-bang-rewrite-of-a-system-is-a-bad-idea-in-software-development/)".
 
 ![Red pill blue pill meme, the question says Choose Refactor Strategy and options between Strangler Fig and Big Band Rewrite](https://res.cloudinary.com/dufky4znh/image/upload/v1736252569/refactor-strategy_jsl6bflh6bm5q9i1xgcn.png)
 
@@ -106,7 +107,13 @@ Aquest canvi de rumb ens va portar a fer un *fork* de la codebase existent, una 
 - Infraestructura replicada: Era necessari desplegar un servidor independent i garantir una observabilitat adequada per a cada sistema.
 - Major carrega cognitiva per a l'equip: Totes aquestes duplicitats requerien un esforç addicional per mantenir consistència entre els dos sistemes, augmentant la complexitat i el risc d'errors de l'equip.
 
-Aquest enfocament ens va permetre avançar cap a una solució independent, garantint l'estabilitat del sistema existent mentre construíem un projecte alineat amb els nous objectius estratègics, també amb el compromís a nivell de negoci, de no ampliar funcionalitats y un control total del backlog del projecte fins haver fet la migració al nou ecommerce
+Aquest enfocament ens va permetre avançar cap a una solució independent, assegurant l'estabilitat del sistema existent mentre desenvolupàvem un projecte alineat amb els nous objectius estratègics. Tanmateix, era imprescindible analitzar amb detall els pros i contres per abordar aquest repte amb confiança i planificació. A més, es va establir un compromís nivell de negoci per no ampliar funcionalitats i mantenir un control estricte del backlog del projecte fins a completar la migració al nou e-commerce.
+
+---
+![Diagrama nova arquitectura](https://res.cloudinary.com/dufky4znh/image/upload/v1736448487/fork-diagram_e5ol0f.png)
+
+---
+
 
 | Pros | Contres |
 |---------------------------|----------|
@@ -118,6 +125,8 @@ Aquest enfocament ens va permetre avançar cap a una solució independent, garan
 | Major facilitat per incorporar testing des de l'inici | Necessitat de mantenir compatibilitat amb dades històriques |
 | Flexibilitat per adaptar-se a nous requeriments de negoci | Cost inicial més alt en temps i recursos |
 | Millor alineació amb l'estratègia global de l'empresa | Possible pèrdua temporal de funcionalitats no essencials |
+
+---
 
 ## Conclusions i següents passos
 
