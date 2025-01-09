@@ -1,11 +1,13 @@
-<script src="https://unpkg.com/mermaid@11.4.0/dist/mermaid.min.js"></script>
-<script>
-  $(document).ready(function () {
-    mermaid.initialize({
-      startOnLoad:true,
-      theme: "default",
+{% if page.mermaid %}
+  <script src="https://unpkg.com/mermaid@11.4.0/dist/mermaid.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      mermaid.initialize({
+        securityLevel: 'loose',
+        startOnLoad:true,
+        theme: "neutral",
+      });
+      window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
     });
-    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
-  });
-</script>
- 
+  </script>
+{% endif %}
