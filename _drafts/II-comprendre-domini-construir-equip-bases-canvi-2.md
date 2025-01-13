@@ -11,22 +11,6 @@ tags:
   - product
   - software development
   - TDD
-published: false
----
-
----
-title: "Comprendre el domini i construir l'equip: Les bases del canvi (II)"
-permalink: /comprendre-domini-construir-equip-bases-canvi-2/
-tags: 
-  - domain-driven design
-  - team building
-  - collaboration
-  - agile
-  - scrum
-  - lean
-  - product
-  - software development
-  - TDD
   - event storming
   - ddd
   - domain driven design
@@ -36,21 +20,40 @@ markdown: true
 
 Quan comences un projecte complex com el que estem abordant, és essencial partir de zero en el coneixement del domini. Aquesta comprensió no només ajuda a l'equip tècnic a alinear-se amb els objectius del negoci, sinó que també estableix les bases per prendre decisions informades al llarg del desenvolupament.
 
-El primer que calia fer era entendre com funcionava l'aplicatiu existent, era entendre quin eren els diferents els procesos logístics i com estaven representats, establir un llenguatge comú amb l'anterior equip i els usuaris actuals del aplicatiu. Les primeres sessions realitzades amb l'equip anterior, no eren gaire fructíferes i vam haver de buscar alguna que altre solució.
+El primer que calia fer era entendre com funcionava l'aplicatiu existent, identificar els diferents procesos que s'executaven i veure com estaven representats, establir un llenguatge comú amb l'anterior equip i els usuaris actuals del aplicatiu. Les primeres sessions realitzades amb l'equip anterior, no van ser gaire fructíferes i vam haver de buscar alguna que altre solució.
 
 ## Domain-Driven Design (DDD)
 
 Al incorporar-me com a *tech lead* des d'un principi vaig tenir clar que li haviem de donar un enfocament domain-driven tant al projecte com a l'equip. Això ens permetria moure el domini al centre de la narrativa, d'aquesta manera alineariem l'equip al voltant d'un llenguatge comú (*ubiquitous language*) que ens facilitaria la comunicació i ens permetria fer un mapa de l'estat actual de l'aplicació.
 
-Així que un cop format aquest equip inicial vam començar a prepar sessións d'[Event Storming](https://www.eventstorming.com/). Aquesta metodologia visual ens va ajudar a descompondre els processos clau del sistema i identificar esdeveniments de domini rellevants.
+Així que un cop format aquest equip inicial vam començar a prepar sessións d'[EventStorming](https://www.eventstorming.com/). Aquesta metodologia visual ens va ajudar a descompondre els processos clau del sistema i identificar esdeveniments de domini rellevants.
 
-### Event Storming
+### Sessions EventStorming
 
-Vam utilitzar una [plantilla de Miro](https://miro.com/miroverse/event-storming/) per facilitar les sessions, aquesta ja porta una mica de guía i llegenda de les referències claus que s'han de tenir en compte per enfocar aquestes sessions les sessions
+Vam utilitzar una [plantilla de Miro](https://miro.com/miroverse/event-storming/) per facilitar les sessions, aquesta ja porta una mica de guía i llegenda de les referències claus que s'han de tenir en compte per enfocar aquestes sessions i que vindria bé familiaritzar-se amb elles abans de fer una sessió d'aquest tipus
 
-#### Metodologia
+```mermaid
+flowchart TD
+    subgraph Legend["Llegenda Event Storming"]
+        direction TB
 
-Per maximitzar l'efectivitat de les sessions d'Event Storming, vam desenvolupar un procés estructurat en diverses fases:
+        Event["Event"]:::event
+        Command["Command"]:::command
+        Aggregate["Aggregate"]:::aggregate
+        Policy["Policy"]:::policy
+        Actor["Actor"]:::actor
+        Note["Note"]:::note
+    end
+
+    classDef event fill:#fc5e03,stroke:#782c00,stroke-width:2px,corner-radius:5px;  
+    classDef command fill:#00b2e8,stroke:#005c78,stroke-width:2px,corner-radius:5px; 
+    classDef aggregate fill:#ffbf00,stroke:#7a5c00,stroke-width:2px,corner-radius:5px; 
+    classDef policy fill:#6f00ff,stroke:#240054,stroke-width:2px,corner-radius:5px; 
+    classDef actor fill:#ffdd00,stroke:#756600,stroke-width:2px,corner-radius:5px;
+    classDef note fill:#fa0000,stroke:#660000,stroke-width:2px,corner-radius:5px;
+```
+
+Per maximitzar l'efectivitat de les sessions vam desenvolupar un procés estructurat en diverses fases:
 
 1. **Exploració d'Events de Domini** (Foto inicial)
 - Identificar els esdeveniments clau del sistema
@@ -77,28 +80,6 @@ Per maximitzar l'efectivitat de les sessions d'Event Storming, vam desenvolupar 
  - Validar el model amb tots els stakeholders
  - Crear documentació de referència
 
-#### Llegenda
-
-```mermaid
-flowchart TD
-    subgraph Legend["Llegenda Event Storming"]
-        direction TB
-
-        Event["Event"]:::event
-        Command["Command"]:::command
-        Aggregate["Aggregate"]:::aggregate
-        Policy["Policy"]:::policy
-        Actor["Actor"]:::actor
-        Note["Note"]:::note
-    end
-
-    classDef event fill:#fc5e03,stroke:#782c00,stroke-width:2px,corner-radius:5px;  
-    classDef command fill:#00b2e8,stroke:#005c78,stroke-width:2px,corner-radius:5px; 
-    classDef aggregate fill:#ffbf00,stroke:#7a5c00,stroke-width:2px,corner-radius:5px; 
-    classDef policy fill:#6f00ff,stroke:#240054,stroke-width:2px,corner-radius:5px; 
-    classDef actor fill:#ffdd00,stroke:#756600,stroke-width:2px,corner-radius:5px;
-    classDef note fill:#fa0000,stroke:#660000,stroke-width:2px,corner-radius:5px;
-```
 
 L'Event Storming no només ens va servir per entendre el domini, sinó que també va ser el punt de partida per aplicar els principis de Domain-Driven Design (DDD) tant a nivell estratègic com tàctic.
 
@@ -160,7 +141,64 @@ Aquest enfocament ens ajuda a crear codi més comprensible i modular, ja que cad
 
 #### Serveis (Services)
 
-En el Domain-Driven Design, els Services són elements que encapsulen lògica de domini que no s'adapta bé a cap entitat o objecte de valor. Es defineixen com operacions significatives que impliquen diverses entitats o que responen a una necessitat concreta del domini, però que no representen cap cosa concreta dins d'ell. Els serveis són especialment útils per evitar la sobrecàrrega d'entitats amb responsabilitats que no els corresponen.
+En una aplicació complexa com la nostra, el concepte de Serveis juga un paper central en el manteniment d'un codi net i modular. Els serveis es classifiquen en diferents capes i tipus segons el seu propòsit i els patrons que implementen. Explorem l'estructura i els patrons que fem servir per organitzar i implementar serveis de manera efectiva.
+
+##### Serveis de Domini
+
+Els Serveis de Domini encapsulen lògica de negoci que no encaixa directament en cap entitat o valor específic. Són serveis que operen estrictament dins de les regles del domini i no tenen dependències amb components d'infraestructura.
+
+```php
+class CheapestCarrierGetter
+{
+    public function get(
+        DeliveryOptionCarrierCollection $deliveryOptionCarriers,
+        Weight                          $orderWeight,
+        Country                         $country,
+        PostalCode                      $postalCode,
+        bool                            $isCashOnDelivery = false,
+    ): Carrier {
+        // Lògica per obtenir el transportista més econòmic
+    }
+}
+```
+##### Serveis d'aplicació
+
+Els Serveis d'Aplicació encapsulen i coordinen lògica que combina operacions de domini amb interaccions externes per implementar escenaris específics de negoci o aplicació. Aquests serveis centralitzen i simplifiquen la implementació d'operacions complexes, assegurant una separació clara entre el domini i la infraestructura. Els més coneguts són els casos d'ús (use cases) però en el nostre cas tindrem també Command Handlers i Event Handlers.
+
+Els Use Cases representen accions o processos específics que l'aplicació necessita realitzar per complir amb els requisits de negoci. Encapsulen la lògica necessària per executar operacions complexes, incloent-hi interaccions amb serveis de domini i infraestructura, mantenint el domini net i focalitzat.
+
+Command Handlers: Gestionen accions explícites sol·licitades pel sistema o un usuari, garantint que es compleixen les regles de negoci necessàries. AMPLIAR
+
+Event Handlers: Responen a esdeveniments generats pel domini o altres parts de l'aplicació, activant les accions que cal realitzar com a conseqüència d'aquests esdeveniments. AMPLIAR
+
+```php
+readonly class NotifyShopOnOrderShipped implements EventHandlerInterface
+{
+    public function __construct(
+        private OrderRepositoryInterface    $orderRepository,
+        private ExternalOrderUpdaterFactory $externalOrderUpdaterFactory,
+        private LoggerInterface             $logger
+    ) {}
+
+    public function __invoke(OrderShippedDomainEvent $event): void
+    {
+        // Lògica per notificar la botiga quan una comanda ha estat enviada
+        $order = $this->orderRepository->findById($event->getOrderId());
+        if (!$order) {
+            $this->logger->error("Comanda no trobada", ['orderId' => $event->getOrderId()]);
+            return;
+        }
+
+        $updater = $this->externalOrderUpdaterFactory->create($order);
+        $updater->updateStatus('shipped');
+
+        $this->logger->info("Notificació d'enviament completada", ['orderId' => $order->getId()]);
+    }
+}
+```
+
+
+##################################### 
 
 
 Tots aquests conceptes de domini són només una petita mostra de tot el que vam arribar a mapejar. Evidentment, tampoc ho vam fer de cop ni vam encertar tot a la primera: hi ha moltes parts que encara van quedar pendents de reestructurar, conceptes que no vam acabar d'aclarir del tot i repositoris que sabíem que no tenien sentit, però que havíem d'acabar d'eliminar.
