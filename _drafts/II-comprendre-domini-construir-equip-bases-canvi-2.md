@@ -196,7 +196,46 @@ readonly class NotifyShopOnOrderShipped implements EventHandlerInterface
     }
 }
 ```
+##### Serveis d'Infraestructura
 
+Els Serveis d'Infraestructura implementen operacions que depenen de components externs com bases de dades, sistemes de fitxers o serveis de tercers. Sovint actuen com adaptadors per garantir que el domini es mantingui agnòstic a la implementació concreta.
+
+```php
+namespace Picking\Infrastructure\Service\Logger;
+
+use Picking\Domain\Service\LoggerInterface;
+use Monolog\Logger;
+
+class MonologLogger implements LoggerInterface
+{
+    private $logger;
+
+    public function __construct(Logger $logger)
+    {
+        $this->logger = $logger;
+    }
+
+    public function info(string $message, array $context = []): void
+    {
+        $this->logger->info($message, $context);
+    }
+
+    public function warning(string $message, array $context = []): void
+    {
+        $this->logger->warning($message, $context);
+    }
+
+    public function critical(string $message, array $context = []): void
+    {
+        $this->logger->critical($message, $context);
+    }
+
+    public function error(string $message, array $context = []): void
+    {
+        $this->logger->error($message, $context);
+    }
+}
+```
 
 ##################################### 
 
