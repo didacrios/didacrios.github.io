@@ -13,7 +13,7 @@ tags:
   - symfony
   - iteration
   - strangler fig
-published: false
+published: true
 ---
 
 Quan parlem de software legacy, sovint pensem en aplicacions antiquades o mal dissenyades. Però la realitat és que el "legacy" pot ser qualsevol aplicació que, tot i funcionar correctament, presenta reptes significatius per a la seva evolució i manteniment. Aquesta és la història de com vam abordar la internalització d'una aplicació de gestió logística (Order Management System, OMS), amb el repte afegit d'una integració amb una nova plataforma de comerç electrònic.
