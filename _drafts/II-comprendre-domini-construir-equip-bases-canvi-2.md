@@ -18,19 +18,19 @@ published: false
 markdown: true
 ---
 
-Quan comences un projecte complex com el que estem abordant, és essencial partir de zero en el coneixement del domini. Aquesta comprensió no només ajuda a l'equip tècnic a alinear-se amb els objectius del negoci, sinó que també estableix les bases per prendre decisions informades al llarg del desenvolupament.
+Al començar un projecte complex com el que estem abordant, és essencial tenir el màxim context possible, però tambe partir de zero en el coneixement del domini i anar explorant amb l'ajuda dels *domain experts*. Aquesta activitat no només ajuda a l'equip tècnic a alinear-se amb els objectius del negoci, sinó que també ajudar a fer-se un mapa global establint les bases per prendre millors decisions al llarg del cicle de vida del producte.
 
-El primer que calia fer era entendre com funcionava l'aplicatiu existent, identificar els diferents procesos que s'executaven i veure com estaven representats, establir un llenguatge comú amb l'anterior equip i els usuaris actuals del aplicatiu. Les primeres sessions realitzades amb l'equip anterior, no van ser gaire fructíferes i vam haver de buscar alguna que altre solució.
+Per entendre com funcionava l'aplicatiu existent, identificar els diferents procesos que s'executaven i saber com estaven representats al codi així com establir un llenguatge comú amb l'anterior equip i els usuaris actuals del aplicatiu vam realitzar unes primeres sessions que no van ser gaire fructíferes, fins al punt de valorar si podiem ferun traspàs més traumàtic prescindint d'aquestes i espavilar-nos pel nostre compte.
 
-## Domain-Driven Design (DDD)
+## EventStorming
 
-Al incorporar-me com a *tech lead* des d'un principi vaig tenir clar que li haviem de donar un enfocament domain-driven tant al projecte com a l'equip. Això ens permetria moure el domini al centre de la narrativa, d'aquesta manera alineariem l'equip al voltant d'un llenguatge comú (*ubiquitous language*) que ens facilitaria la comunicació i ens permetria fer un mapa de l'estat actual de l'aplicació.
+Al incorporar-me com a *tech lead* des d'un principi vaig tenir clar que degut a la complexitat del projecte i si volia que l'equip tingués un *ownership* real del producte haviem de donar un enfocament *domain-driven* tant al projecte com a l'equip. 
 
-Així que un cop format aquest equip inicial vam començar a prepar sessións d'[EventStorming](https://www.eventstorming.com/). Aquesta metodologia visual ens va ajudar a descompondre els processos clau del sistema i identificar esdeveniments de domini rellevants.
+Això ens permetria moure el domini al centre de la narrativa, d'aquesta manera alineariem tot l'equip al voltant d'un llenguatge comú (*ubiquitous language*) que ens facilitaria la comunicació i ens permetria fer un mapa de l'estat actual de l'aplicació.
 
-### Sessions EventStorming
+Així que un cop format aquest equip inicial vam començar a prepar sessions d'[EventStorming](https://www.eventstorming.com/). Aquesta metodologia visual ens va ajudar a descompondre els processos clau del sistema i identificar esdeveniments i entitats de domini rellevants.
 
-Vam utilitzar una [plantilla de Miro](https://miro.com/miroverse/event-storming/) per facilitar les sessions, aquesta ja porta una mica de guía i llegenda de les referències claus que s'han de tenir en compte per enfocar aquestes sessions i que vindria bé familiaritzar-se amb elles abans de fer una sessió d'aquest tipus
+Per a facilitar les sessions vam utilitzar una [plantilla de Miro](https://miro.com/miroverse/event-storming/) que  ja porta una mica de guía i llegenda de les referències claus que s'han de tenir en compte per enfocar una sessió d'aquest tipus. Si voleu fer una sessió vindria bé que els participans tinguin un mínim de noció d'alguns conceptes amb els que hauran de trrballar, ja sigui fent fer una mica de *prework* o fer una explicació al iniciar la sessió.
 
 ```mermaid
 flowchart TD
@@ -81,9 +81,9 @@ Per maximitzar l'efectivitat de les sessions vam desenvolupar un procés estruct
  - Crear documentació de referència
 
 
-L'Event Storming no només ens va servir per entendre el domini, sinó que també va ser el punt de partida per aplicar els principis de Domain-Driven Design (DDD) tant a nivell estratègic com tàctic.
+L'*EventStorming* no només ens va servir per entendre el domini, sinó que també va ser el punt de partida per aplicar els principis de *Domain-Driven Design (DDD)* tant a nivell estratègic com tàctic.
 
-### DDD Estratègic
+### Domain-Driven Design Estratègic
 
 El procés de descobriment del domini a través de les sessions d'Event Storming ens va permetre aplicar els principis estratègics del Domain-Driven Design d'una manera més natura.. Aquest enfocament va ser fonamental per entendre no només com funcionava el sistema, sinó també per identificar oportunitats de millora i simplificació. No son fàcils aquest tipus de  sessions, a vegades et perds en detalls, d'altres no aprofundeixes prou, a vegades cometem l'error de nou incloure els experts del domini (*domain experts*) a la conversa, però cal fer aquest treball en comú, per aclarir conceptes i unificar-los, alinear-se per trobar un consens a l'hora de modelar el domini i que aquest es pugui representar de igual manera també en el codi. 
 
