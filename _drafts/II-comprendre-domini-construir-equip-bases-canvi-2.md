@@ -85,26 +85,34 @@ L'*EventStorming* no només ens va servir per entendre el domini, sinó que tamb
 
 ### Domain-Driven Design Estratègic
 
-El procés de descobriment del domini a través de les sessions d'Event Storming ens va permetre aplicar els principis estratègics del Domain-Driven Design d'una manera més natura.. Aquest enfocament va ser fonamental per entendre no només com funcionava el sistema, sinó també per identificar oportunitats de millora i simplificació. No son fàcils aquest tipus de  sessions, a vegades et perds en detalls, d'altres no aprofundeixes prou, a vegades cometem l'error de nou incloure els experts del domini (*domain experts*) a la conversa, però cal fer aquest treball en comú, per aclarir conceptes i unificar-los, alinear-se per trobar un consens a l'hora de modelar el domini i que aquest es pugui representar de igual manera també en el codi. 
+Un dels punts més importants en la fase inicial del projecte va ser decidir com estructurar el domini a nivell estratègic. La complexitat del sistema, combinada amb la necessitat d'alinear els objectius tècnics amb els del negoci, ens va portar a adoptar principis de Domain-Driven Design (DDD).
+
+Durant aquest procés, una de les eines més útils va ser el *Context Mapping*. Tot i que treballàvem amb un monolit encara pendent de refactorització, vam invertir temps a identificar diversos *Bounded Contexts* dins del domini. A la pràctica, això volia dir que, tot i haver descrit i delimitat diversos contextos conceptuals, a nivell tècnic operàvem dins d’un únic *Bounded Context* amb un sol *Shared Kernel*. Aquesta realitat monolítica no ens va impedir aprofitar els beneficis d’aquesta anàlisi.
+
+Encara que no aprofundíssim en el *Context Mapping* de manera exhaustiva, utilitzar aquestes tècniques en aquesta etapa va ser clau per assegurar que el projecte tingués un camí clar cap a una arquitectura orientada al domini. Aquest enfocament no només facilita el desenvolupament tècnic, sinó que també promou una millor col·laboració entre els equips tècnics i els de negoci.
 
 #### Establint els Límits (*Bounded Contexts*)
 
-Les sessions ens van permetre identificar els diferents contextos delimitats (Bounded Contexts) del nostre domini. Aquest procés va ser crucial ja que ens va ajudar a entendre on havíem de dirigir els esforços de desenvolupament i quines parts del sistema podien ser simplificades, desacoblades o eliminades. Tecnicament, ens vam centrar especialment en la implementació de *Anti-Corruption Layers* (ACL), ja que ens permetien interactuar amb sistemes externs sense comprometre la integritat del nostre sistema.
+Identificar els *Bounded Contexts* ens va permetre entendre millor com es relacionaven les diferents parts del sistema, tant entre si com amb els sistemes externs. Aquest exercici no només ens va ajudar a gestionar la complexitat de manera més eficient, sinó que també va establir una base clara per als passos evolutius posteriors del projecte. A mesura que el sistema evolucioni cap a una arquitectura més modular, aquestes decisions inicials serviran de guia per descompondre el monòlit en components més manejables i alineats amb els contextos definits
 
-Inicialment vam poder establir 5 grans contexts diferenciats clarament:
-- Assignació de comandes
+També ens va ajudar a entendre on havíem de dirigir els esforços de desenvolupament i quines parts del sistema podien ser simplificades, desacoblades o eliminades. Tècnicament, ens vam centrar especialment en la implementació de *Anti-Corruption Layers* (ACL), ja que ens permetien interactuar amb sistemes externs sense comprometre la integritat del nostre sistema.
+
+En el nostre cas, inicialment vam identificar cinc grans contexts clarament diferenciats:- Assignació de comandes
 - Generació d'etiquetes
 - Preparació de comandes
 - Integració E-commerce
 - Preparació de comandes massiu
+
+Aquestes decisions no només han establert els fonaments per a una arquitectura sostenible, sinó que també han garantit que els processos de desenvolupament siguin més focalitzats i alineats amb les necessitats del negoci.
 
 [![Bounded Contexts, OMS](https://res.cloudinary.com/dufky4znh/image/upload/c_thumb,w_200,g_face/v1736502607/event-storming2_nlyn9s.png)](https://res.cloudinary.com/dufky4znh/image/upload/v1736502607/event-storming2_nlyn9s.png)
 
 
 #### Llenguatge Ubic (*Ubiquitous language*)
 
-Un altre aspecte fonamental va ser establir un llenguatge ubic (*ubiquitous language*) sòlid i es que els avantatges d'estabir-lo son molt superiors a qualsevol sobresforç de traducció, o el risc de malinterpretar conceptes. Els experts de domini (*Domain Experts*) i els programadors han de treballar conjuntament en establir aquest llenguatge comú, que va més enllà d'un simple glossari de termes, es tracta d'establir un recurs viu i dinàmic que connecta l'equip tècnic amb els experts del domini. L'esforç en la seva implementació va facilitar la comunicació, va reduir malentesos i va assegurar que el codi fos una representació fidel del domini, per que al final desenvolupar software no es una questió tècnica, és comunicar-se i treballar conjuntament.
+Un altre aspecte fonamental va ser establir un llenguatge ubic (*ubiquitous language*) sòlid. Els avantatges d'establir aquest llenguatge són molt superiors a qualsevol sobresforç de traducció o al risc de malinterpretar conceptes. Els experts de domini (*Domain Experts*) i els programadors han de coŀlaborar activament per crear aquest llenguatge comú, que va més enllà d'un simple glossari de termes. Es tracta d'un recurs viu i dinàmic que connecta l'equip tècnic amb els experts del domini.
 
+L'esforç en la seva implementació ha facilitat la comunicació, reduït malentesos i assegurat que el codi sigui una representació fidel del domini. Desenvolupar software no és només una qüestió tècnica; és una activitat basada en la comunicació i la coŀlaboració. Gràcies al llenguatge ubic, tots els membres de l'equip treballen alineats, cosa que resulta en solucions tècniques més eficients i que responen millor a les necessitats del negoci.
 
 ### DDD Tàctic
 
