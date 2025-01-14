@@ -137,8 +137,6 @@ Els objectes de valor, en canvi, són elements del domini que no tenen identitat
 Aquest enfocament ens ajuda a crear codi més comprensible i modular, ja que cada element del sistema té una responsabilitat clara i ben definida.
 
 
-
-
 #### Serveis (Services)
 
 En una aplicació complexa com la nostra, el concepte de Serveis juga un paper central en el manteniment d'un codi net i modular. Els serveis es classifiquen en diferents capes i tipus segons el seu propòsit i els patrons que implementen. Explorem l'estructura i els patrons que fem servir per organitzar i implementar serveis de manera efectiva.
@@ -161,15 +159,24 @@ class CheapestCarrierGetter
     }
 }
 ```
+
 ##### Serveis d'aplicació
 
-Els Serveis d'Aplicació encapsulen i coordinen lògica que combina operacions de domini amb interaccions externes per implementar escenaris específics de negoci o aplicació. Aquests serveis centralitzen i simplifiquen la implementació d'operacions complexes, assegurant una separació clara entre el domini i la infraestructura. Els més coneguts són els casos d'ús (use cases) però en el nostre cas tindrem també Command Handlers i Event Handlers.
+Els Serveis d'Aplicació encapsulen i coordinen lògica que combina operacions de domini amb interaccions externes per implementar escenaris específics de negoci o aplicació. Aquests serveis centralitzen i simplifiquen la implementació d'operacions complexes, assegurant una separació clara entre el domini i la infraestructura. Els més coneguts són els casos d'ús (use cases) però en el nostre cas  també tindrem *Command Handlers* i *Event Handlers*.
 
-Els Use Cases representen accions o processos específics que l'aplicació necessita realitzar per complir amb els requisits de negoci. Encapsulen la lògica necessària per executar operacions complexes, incloent-hi interaccions amb serveis de domini i infraestructura, mantenint el domini net i focalitzat.
+```mermaid
+graph TD
+    ApplicationServices["Application Services"] --> UseCases["Use Cases"]
+    ApplicationServices --> EventHandlers["Event Handlers"]
+    ApplicationServices --> CommandHandlers["Command Handlers"]
+```
 
-Command Handlers: Gestionen accions explícites sol·licitades pel sistema o un usuari, garantint que es compleixen les regles de negoci necessàries. AMPLIAR
+Els Use Cases representen accions o processos específics que l'aplicació necessita realitzar per complir amb els requisits de negoci. Encapsulen la lògica necessària per executar operacions complexes, incloent-hi interaccions amb serveis de domini i infraestructura, mantenint el domini net i focalitzat. Podriem dir que la seva responsabilitat hauria de ser nomes la d'orquestrar entre aquestes dues capes, i deixant la responsabilitat cap al domini, com diu Vaughn Vernon *“Keep Application Services thin, using them only to coordinate tasks on the model.”*
 
-Event Handlers: Responen a esdeveniments generats pel domini o altres parts de l'aplicació, activant les accions que cal realitzar com a conseqüència d'aquests esdeveniments. AMPLIAR
+Els *Command Handlers* són la porta d'entrada per a les modificacions en el domini. En rebre un *Command*, validen la petició, deleguen la lògica de negoci als agregats corresponents i, finalment, publiquen un esdeveniment que reflecteix el canvi produït en el sistema.
+
+D'altra banda els *Event Handlers* actuen com a *listeners* a canvis en el sistema. Escolten esdeveniments i executen accions específiques en resposta, com ara enviar notificacions, actualitzar altres agregats o integrar-se amb sistemes externs. Aquesta reacció desacoblada permet construir sistemes més flexibles i escalables. Ampliaré els detalls i conceptes en pròximes entrades quan parlem sobre l'evolució de l'aplicatiu com a una arquitectura basada en events i sistemes de cues(Event-Driven Architecture, EDA).
+
 
 ```php
 readonly class NotifyShopOnOrderShipped implements EventHandlerInterface
@@ -237,12 +244,26 @@ class MonologLogger implements LoggerInterface
 }
 ```
 
-##################################### 
+##### Classificació dels serveis
+
+Com hem vist, els serveis ens serveixen per desacoblar i descomposar lògica de la nostra aplicació d'una forma més granular i independent., aquí us deixo una classificació de serveis comuns que hem identificat en els nostre projecte, agrupant-los segons la seva funció principal i associant-los a patrons de disseny coneguts. Aquesta classificació ens permet tenir una visió més estructurada de la nostra arquitectura i facilita la presa de decisions a l'hora de dissenyar noves funcionalitats. 
 
 
-Tots aquests conceptes de domini són només una petita mostra de tot el que vam arribar a mapejar. Evidentment, tampoc ho vam fer de cop ni vam encertar tot a la primera: hi ha moltes parts que encara van quedar pendents de reestructurar, conceptes que no vam acabar d'aclarir del tot i repositoris que sabíem que no tenien sentit, però que havíem d'acabar d'eliminar.
+| Tipus de Servei  | Descripció                                                                | Patró       | Exemple                                                 |
+| ---------------- | ------------------------------------------------------------------------- | ----------- | ------------------------------------------------------- |
+| **Transformers** | Converteixen dades entre diferents formats o representacions.             | *Adapter*   | Convertir respostes d'API externes en models de domini. |
+| **Builders**     | Construeixen objectes complexos pas a pas.                                | *Builder*   | Crear un objecte `Order`.                               |
+| **Factories**    | Creen objectes de domini assegurant que compleixen regles i restriccions. | *Factory*   | Crear instàncies de `Product`.                          |
+| **Presenters**   | Donen format a les dades per a la interfície d'usuari o respostes d'API.  | *Decorator* | Enriquir dades per mostrar-les a l'usuari.              |
+| **Notifiers**    | Envien notificacions (correu, SMS, etc.).                                 | *Observer*  | Notificar l'usuari de canvis importants.                |
+| **Validators**   | Asseguren que objectes compleixin regles de negoci.                       | *Strategy*  | Validar sol·licituds d'usuari o formularis.             |
+| **Clients**      | Interactuen amb aplicacions o serveis externs.                            | *Proxy*     | Consumir APIs externes per obtenir informació.          |
 
-Però amb aquesta feina feta inicialment, es va permetre que tot l'equip participés en aquest procés i tingués un compromís (commitment) per tot el que estàvem construint.
+---
+
+Tots aquests conceptes de domini són només una petita mostra de tot el que vam arribar a fer modelat. Evidentment, tampoc ho vam fer de cop ni vam encertar tot a la primera: hi ha moltes parts que encara van quedar pendents de reestructurar, conceptes que no vam acabar d'aclarir del tot i repositoris que sabíem que no tenien sentit, però que havíem de mantenir per funcionalitats, però que haviem d'acabar d'eliminar.
+
+Però amb aquesta feina feta inicialment, es va permetre que tot l'equip participés en aquest procés i tingués un compromís (*commitment*) per tot el que estàvem construint.
 
 Per aprofundir en aquests conceptes de DDD i com aplicar-los, recomano llegir els llibres següents:
 
