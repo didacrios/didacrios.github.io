@@ -47,17 +47,27 @@
 }
 
 #toc-container {
-  /* set at the top right of the page with a maximum width of the window, if the content is more ad scrollbar */
   position: fixed;
   top: 0;
-  right: 20px;
-  max-width: 100%;
+  left: 0;
   max-height: 100%;
+  max-width: max-content;
   overflow-y: auto;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 5px 5px;
+  z-index: 1000; /* Ensures it stays above most elements */
 }
+
+/** set on tablet and desktop right: 20px; to #toc-container **/
+@media (min-width: 768px) {
+  #toc-container {
+    right: 20px !important;
+    left: auto;
+    max-width: fit-content;
+  }
+}
+
 
 #toc-container ul {
   list-style-type: none;

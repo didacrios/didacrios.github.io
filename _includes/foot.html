@@ -55,10 +55,18 @@
     tocContainer.classList.toggle('hidden');
   });
 
-  // click . close toggle hidden too
+  // click .close toggle hidden too
   document.querySelector('.close').addEventListener('click', () => {
     const tocContainer = document.getElementById('toc-container');
     tocContainer.classList.toggle('hidden');
+  });
+
+  // click one of the links inside toc-container and also toggle hidden
+  document.getElementById('toc-container').addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+      const tocContainer = document.getElementById('toc-container');
+      tocContainer.classList.toggle('hidden');
+    }
   });
 </script>
 {% endif %}
