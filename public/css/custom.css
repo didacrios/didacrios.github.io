@@ -1,0 +1,96 @@
+.series {
+  margin: 2.5rem 4rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.series header {
+  margin: 1rem;
+  margin-bottom: 1.1rem;
+  color: #268bd2;
+  font-weight: bold;
+}
+
+
+.series small {
+  color:#515151
+}
+
+.post-date {
+  display: inline;
+}
+
+#toc-dropdown {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  z-index: 1000; /* Ensures it stays above most elements */
+  background-color: transparent; /* Transparent background to only show the button */
+  padding: 0;
+  margin: 0;
+}
+
+#toc-dropdown button {
+  padding: 10px 15px;
+  background-color: #555;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  white-space: nowrap; /* Ensures the button fits its text content */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#toc-container {
+  /* set at the top right of the page with a maximum width of the window, if the content is more ad scrollbar */
+  position: fixed;
+  top: 0;
+  right: 20px;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px;
+}
+
+#toc-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px;
+}
+
+#toc-container p {
+  margin: 10px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+
+#toc-container .close {
+ /** button with a x to close the element **/
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #fff;
+  color: #555;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 100px;
+  line-height: 10px;
+  cursor: pointer;
+  font-variant: small-caps;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.hidden {
+  display: none;
+}

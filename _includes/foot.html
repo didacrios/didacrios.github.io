@@ -1,13 +1,64 @@
 {% if page.mermaid %}
   <script src="https://unpkg.com/mermaid@11.4.0/dist/mermaid.min.js"></script>
   <script>
-    $(document).ready(function () {
+   // on document load
+    document.addEventListener('DOMContentLoaded', () => {
       mermaid.initialize({
         securityLevel: 'loose',
         startOnLoad:true,
         theme: "neutral",
+        //look: "handDrawn",
+        themeVariables: {
+          pan: true,   // Enables panning (this is a placeholder in case of updates)
+          zoom: true,  // Enables zooming (also a placeholder)
+        },
       });
       window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+
     });
   </script>
+{% endif %}
+{% if page.toc %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navContainer = document.getElementById('toc-container');
+    const postContent = document.querySelector('.post');
+    const headers = postContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const navList = document.createElement('ul');
+
+    headers.forEach((header, index) => {
+        const anchorName = `header-${index}`;
+        header.id = anchorName;
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `#${anchorName}`;
+        link.textContent = header.textContent;
+        listItem.appendChild(link);
+
+        // Add padding to subheaders
+        const headerLevel = header.tagName.match(/\d/g);
+        var multiplierFactor = 3;
+        var secondHeaderLevel = 3;
+        if (headerLevel >= secondHeaderLevel) {
+            listItem.style.paddingLeft = headerLevel * (multiplierFactor * headerLevel) + 'px';
+        }
+        navList.appendChild(listItem);
+    });
+
+    navContainer.appendChild(navList);
+  });
+
+
+  //  click .toc-button make display block or none
+  document.querySelector('.toc-button').addEventListener('click', () => {
+    const tocContainer = document.getElementById('toc-container');
+    tocContainer.classList.toggle('hidden');
+  });
+
+  // click . close toggle hidden too
+  document.querySelector('.close').addEventListener('click', () => {
+    const tocContainer = document.getElementById('toc-container');
+    tocContainer.classList.toggle('hidden');
+  });
+</script>
 {% endif %}

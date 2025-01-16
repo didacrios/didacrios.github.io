@@ -1,7 +1,7 @@
 ---
-title: "De software legacy a oportunitat estratègica: El punt de partida (I)"
+title: "De software legacy a oportunitat estratègica: El punt de partida"
 permalink: /software-legacy-oportunitat-estrategica-punt-partida-1/
-tags: 
+tags:
   - product
   - technical debt
   - big bang rewrite
@@ -14,6 +14,23 @@ tags:
   - iteration
   - strangler fig
 published: true
+devto: https://dev.to/didacrios/de-software-legacy-a-oportunitat-estrategica-el-punt-de-partida-i-178n
+part: 1
+series:
+  - title: "De software legacy a oportunitat estratègica: El punt de partida"
+    part: 1
+    permalink: /software-legacy-oportunitat-estrategica-punt-partida-1/
+  - title: "Comprendre el domini i construir l'equip: Les bases del canvi"
+    part: 2
+  - title: "Desacoblant el monstre: Una integració pragmàtica"
+    part: 3
+  - title: "De Webhooks a Event-Driven: L'evolució cap a l'EDA"
+    part: 4
+  - title: "Ports & Adapters en acció: L'arquitectura final"
+    part: 5
+  - title: "Modernització i resultats: Quan l'esforç val la pena"
+    part: 6
+toc: true
 ---
 
 Quan parlem de software legacy, sovint pensem en aplicacions antiquades o mal dissenyades. Però la realitat és que el "legacy" pot ser qualsevol aplicació que, tot i funcionar correctament, presenta reptes significatius per a la seva evolució i manteniment. Aquesta és la història de com vam abordar la internalització d'una aplicació de gestió logística (Order Management System, OMS), amb el repte afegit d'una integració amb una nova plataforma de comerç electrònic.
@@ -94,7 +111,7 @@ En qualsevol projecte de refactorització, es poden adoptar varies estratègies 
 
 ![Red pill blue pill meme, the question says Choose Refactor Strategy and options between Strangler Fig and Big Band Rewrite](https://res.cloudinary.com/dufky4znh/image/upload/v1736252569/refactor-strategy_jsl6bflh6bm5q9i1xgcn.png)
 
-Inicialment, la decisió tècnica va ser treballar dins del mateix projecte legacy, aplicant l'estratègia **Strangler Fig**, un enfocament que consisteix a desenvolupar un nou mòdul o sistema que, progressivament, substitueixi les parts del sistema antic. Aquesta estratègia ens permetia fer canvis paral·lels (*parallel changes*), reduint riscos i mantenint la funcionalitat actual mentre construíem una base més sòlida per a les funcionalitats futures. 
+Inicialment, la decisió tècnica va ser treballar dins del mateix projecte legacy, aplicant l'estratègia **Strangler Fig**, un enfocament que consisteix a desenvolupar un nou mòdul o sistema que, progressivament, substitueixi les parts del sistema antic. Aquesta estratègia ens permetia fer canvis paral·lels (*parallel changes*), reduint riscos i mantenint la funcionalitat actual mentre construíem una base més sòlida per a les funcionalitats futures.
 
 Tanmateix, des del punt de vista de negoci, es va considerar que aquesta opció suposava un risc massa elevat per al sistema actual, que ja estava operatiu i complint les seves funcions. Es va prendre la decisió d'evitar tocar el projecte existent i apostar per desenvolupar una aplicació independent que complís amb els nous requeriments.
 

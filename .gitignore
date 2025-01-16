@@ -22,6 +22,7 @@ Gemfile.lock
 ._*
 Thumbs.db
 .cache
+.sass-cache
 .project
 .settings
 .tmproj

@@ -4,9 +4,40 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
+  <span class="post-date">{{ page.date | date_to_string }}</span> {% if page.devto %}<span>• Llegir a <a href="{{ page.devto }}" target="_blank" rel="noopener">dev.to</a></span>{% endif %}
+
+  {% if page.series %}
+    <nav class="series">
+      <header>
+        Aquesta entrada forma part d'una serie de {{ page.series | size }} artícles
+      </header>
+        <ol class="series-posts">
+        {% for post in page.series %}
+          <li>
+              {% if post.part == page.part %}
+                <strong>
+                  {{ post.title }}
+                </strong>
+              {% else %}
+              {% if post.permalink %}
+                <a href="{{ site.baseurl }}{{ post.permalink }}">
+              {% endif %}
+                {{ post.title }}
+                {% if post.permalink %}
+                  </a>
+                {% endif %}
+              {% endif %}
+          </li>
+        {% endfor %}
+        </ol>
+    </nav>
+  {% endif %}
+
+
   {{ content }}
 </div>
+
+
 
 <div class="related">
   <h2>Entrades relacionades</h2>
@@ -23,3 +54,21 @@ layout: default
     {% endfor %}
   </ul>
 </div>
+
+
+{% if page.toc %}
+
+<nav id="toc-dropdown" class="">
+    <button class="toc-button">
+      Índex
+    </button>
+
+ </nav>
+
+<div id="toc-container" class="hidden">
+  <p>Índex de continguts<span class="close">&times;</span></p>
+</div>
+
+
+
+{% endif %}
