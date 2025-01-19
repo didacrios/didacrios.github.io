@@ -14,7 +14,7 @@ tags:
   - event storming
   - ddd
   - domain driven design
-published: false
+published: true
 mermaid: true
 toc: true
 part: 2
