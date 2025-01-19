@@ -15,6 +15,7 @@ tags:
   - ddd
   - domain driven design
 published: true
+devto: https://dev.to/didacrios/understanding-the-domain-and-building-the-team-the-foundations-of-change-ii-4442
 mermaid: true
 toc: true
 part: 2
