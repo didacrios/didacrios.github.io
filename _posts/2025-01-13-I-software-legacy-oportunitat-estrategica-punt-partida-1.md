@@ -22,6 +22,7 @@ series:
     permalink: /software-legacy-oportunitat-estrategica-punt-partida-1/
   - title: "Comprendre el domini i construir l'equip: Les bases del canvi"
     part: 2
+    permalink: /comprendre-domini-construir-equip-bases-canvi-2/
   - title: "Desacoblant el monstre: Una integració pragmàtica"
     part: 3
   - title: "De Webhooks a Event-Driven: L'evolució cap a l'EDA"
