@@ -28,6 +28,7 @@ series:
     permalink: /comprendre-domini-construir-equip-bases-canvi-2/
   - title: "Desacoblant el monstre: Una integració pragmàtica"
     part: 3
+    permalink: /desacoblar-monstre-integracio-pragmatica-3/
   - title: "De Webhooks a Event-Driven: L'evolució cap a l'EDA"
     part: 4
   - title: "Ports & Adapters en acció: L'arquitectura final"
